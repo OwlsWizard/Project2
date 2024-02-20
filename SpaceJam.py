@@ -1,6 +1,6 @@
 from direct.showbase.ShowBase import ShowBase
 
-import SpaceJamClassesRF as spaceJamClasses
+import SpaceJamClasses as spaceJamClasses
 import DefensePaths as defensePaths
 
 import math
@@ -26,27 +26,35 @@ class MyApp(ShowBase):
         self.Universe = spaceJamClasses.Universe("Universe", self.loader, self.render, 
                                                  "./Assets/Universe/Universe.x",  "./Assets/Universe/starfield-in-blue.jpg", 
                                                  (0,0,0),(0,0,0), 15000)
+        
         self.Planet1 = spaceJamClasses.Planet("Planet1", self.loader, self.render, 
                                               "./Assets/Planets/protoPlanet.x",  "./Assets/Planets/gas-giant.png",
                                               (150, 5000, 67), (90,90,90), 350)
+        
         self.Planet2 = spaceJamClasses.Planet("Planet2", self.loader, self.render, 
                                               "./Assets/Planets/redPlanet.x",  "./Assets/Planets/marslike.jpg", 
                                               (-150, -5000, 67), (0,0,0), 300)
+        
         self.Planet3 = spaceJamClasses.Planet("Planet3", self.loader, self.render, 
                                               "./Assets/Planets/redPlanet.x",  "./Assets/Planets/rockyMoon.jpg", 
                                               (-800, -5000, 67), (0,0,0), 100)
+        
         self.Planet4 = spaceJamClasses.Planet("Planet4", self.loader, self.render, 
                                               "./Assets/Planets/protoPlanet.x",  "./Assets/Planets/icyPlanet.jpg", 
                                               (5000, 150, 67), (0,0,0), (300))
+        
         self.Planet5 = spaceJamClasses.Planet("Planet5", self.loader, self.render,
                                               "./Assets/Planets/protoPlanet.x",  "./Assets/Planets/redGasGiant.png", 
                                               (-5000, -150, 67), (270,90,0), (320))
+        
         self.Planet6 = spaceJamClasses.Planet("Planet6", self.loader, self.render, 
                                               "./Assets/Planets/protoPlanet.x",  "./Assets/Planets/greenGasGiant.jpg", 
                                               (3000, 2500, 67), (90,90,90), (300)) 
+        
         self.SpaceStation = spaceJamClasses.SpaceStation("SpaceStation", self.loader, self.render, 
-                                                         "./Assets/SpaceStation/SpaceStation.x",  "./Assets/SpaceStation/SpaceStation1_Dif2.png", 
-                                                         (-100, -100, 20), (0,90,0), (1)) 
+                                                         "./Assets/SpaceStation/spaceStation.x",  "./Assets/SpaceStation/SpaceStation1_Dif2.png", 
+                                                         (-100, -100, 20), (0,90,0), (1))
+        
         self.Player = spaceJamClasses.Player("Spaceship", self.loader, self.render, 
                                              "./Assets/Spaceships/theBorg/theBorg.x",  "./Assets/Spaceships/theBorg/small_space_ship_2_color.jpg", 
                                              (100, 100, 20), (90,90,0), (0.75)) 
@@ -100,7 +108,8 @@ class MyApp(ShowBase):
         
     def DrawCloudDefense(self, centralObject, droneName, radius):
         """
-        Creates a single Drone object in the cloud pattern
+        
+        #Creates a single Drone object in the cloud pattern
         """
         unitVec = defensePaths.cloud()
         unitVec.normalize()
@@ -116,7 +125,7 @@ class MyApp(ShowBase):
         spaceJamClasses.Drone(droneName, self.loader, self.render, 
                             "./Assets/Spaceships/DroneDefender/DroneDefender.x", "./Assets/Spaceships/DroneDefender/octotoad1_auv.png", 
                             position, (0,0,0), 5)    
-        
+      
         
 #main        
 app = MyApp()
